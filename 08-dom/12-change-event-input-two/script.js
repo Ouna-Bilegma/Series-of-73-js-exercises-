@@ -11,4 +11,25 @@
 
 (function () {
   // your code here
+  document.getElementById("pass-one").oninput = () => {
+    let myValue = document.getElementById("pass-one").value;
+    let regExp = /\d/g;
+    let findNumbers;
+
+    if (myValue.length >= 8) {
+      findNumbers = myValue.match(regExp);
+      if (findNumbers !== null) {
+        numNumbers = findNumbers.length;
+      } else {
+        numNumbers = 0;
+      }
+      if (numNumbers >= 2) {
+        document.getElementById("validity").innerHTML = "ok";
+      } else {
+        document.getElementById("validity").innerHTML = "Not ok";
+      }
+    } else {
+      document.getElementById("validity").innerHTML = "Not ok";
+    }
+  };
 })();
